@@ -1,0 +1,174 @@
+/*
+	Theme Name: first-theme
+	Description: my first theme
+	Author: Cvette
+    Version: 1.0
+    Tested up to: 5.6.1
+    Text Domain: first-theme
+    Requires PHP: 8.0.0
+    License: GNU General Public License v2 or later
+    License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+ 
+body {
+    background: whitesmoke;
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 980px;
+    font-family: arial, sans-serif;
+    line-height: 1.75;
+}
+
+.main-page{
+    font-family: arial, sans-serif;
+    line-height: 1.75;
+}
+
+.page-header-main{
+    font-family: arial,sans-serif;
+    line-height: 1.75;
+    background-color: rgb(153, 71, 71);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 30% auto;
+}
+
+.site-title{
+    background: black;
+    font-size: 26px;
+    text-decoration:none;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.navigation ul{
+    font-family: arial, sans-serif;
+    line-height: 1.75;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(43, 39, 39);
+    font-weight: 700;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    text-decoration-line: none;
+}
+.navigation  a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.page-title{
+    font-family: arial,sans-serif;
+    background-color:  rgb(165, 160, 160);
+    /* border-bottom: 1px solid #cdd5d7;
+    border-top: 1px solid #cdd5d7; */
+    text-align: center;
+    position: sticky;
+}
+
+.page{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 10px;
+}
+
+.widget{
+    background: rgba(184, 155, 155, 0.966);
+    color: #404040;
+    line-height: 1.5;
+    border: 0;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    clear: left;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2rem;
+}
+
+.widget li{
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.content {
+    font-family: arial, sans-serif;
+    line-height: 1.75;
+    padding: 12px 24px 24px;
+    margin-bottom: 96px;
+}
+
+footer {
+    font-family: arial, sans-serif;
+    line-height: 1.75;
+    clear:both;
+    border: 1px solid #ddd;
+    text-align: center;
+    color: whitesmoke;
+    padding: 10px;
+    background: rgb(17, 4, 12);
+}
+
+.author-name{
+    font-style: italic;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.author-link a{
+    color: rgb(19, 185, 83);
+    text-decoration: none;
+}
+/* =WordPress Core-------------------------------------------------------------- */
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+
+
+@media screen and (max-width: 980px) {
+ header p,  header h1{
+    float: none;
+    min-width: 200px;
+    margin: 0 auto;
+  }
+  
+}
+
+@media screen and (max-width: 300px) {
+   nav, nav ul, nav li{
+    float: none;
+    min-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+article{
+    float: none;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+.aside{
+    float: none;
+    min-width: 200px;
+    margin: 0 auto;
+  }
+}    
