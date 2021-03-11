@@ -65,7 +65,7 @@ function guest_author_name( $name ) {
 
 if ( ! isset( $content_width ) ) $content_width = 900;
 
-
+/*
 class wpc_post_author{
     
     public function __construct(){    
@@ -117,10 +117,13 @@ class wpc_post_author{
 }
 
 new wpc_post_author();
-    
+*/
+
+
+/*
 /**
  * hook to the 'add_meta_boxes' action to modify title
- */
+ 
 add_action('add_meta_boxes', 'change_author_metabox');
 function change_author_metabox() {
     global $wp_meta_boxes;
@@ -132,5 +135,73 @@ function rename_author_column( $columns ) {
     $columns['author'] = 'Redaktuer';
     return $columns;
 }
+*/
+
+
+/*
+function getUsersByRole( $role ) {
+	// find all users with given role
+	
+	if ( class_exists( 'WP_User_Search' ) ) {
+		$wp_user_search = new WP_User_Search( '', '', $role );
+		$userIDs = $wp_user_search->get_results();
+	} else {
+		global $wpdb;
+		$userIDs = $wpdb->get_col('
+			SELECT ID
+			FROM '.$wpdb->users.' INNER JOIN '.$wpdb->usermeta.'
+			ON '.$wpdb->users.'.ID = '.$wpdb->usermeta.'.user_id
+			WHERE '.$wpdb->usermeta.'.meta_key = \''.$wpdb->prefix.'capabilities\'
+			AND '.$wpdb->usermeta.'.meta_value LIKE \'%"'.$role.'"%\'
+		');
+	}
+	return $userIDs;
+}
+
+function my_list_authors($user_role='author', $show_fullname = true) {
+	// Generate a list of authors for a given role
+	// default is to list authors and show full name
+	
+	global $wpdb;
+	
+	$blog_url = get_bloginfo('url'); // store base URL of blog
+	$holding_pen = array(); // this is cheap, a holder for author data
+ 
+ 	echo '<ul>';
+ 	
+	// get array of all author ids for a role
+	$authors = getUsersByRole( $user_role );
+		
+	foreach ( $authors as $item ) {
+	
+		// get number of posts by this author; custom query
+		$post_count = $wpdb->get_results("SELECT COUNT( * ) as cnt 
+		FROM  $wpdb->posts
+		WHERE  post_author =" . $item . "
+		AND  post_type =  'post'
+		AND  post_status =  'publish'");
+ 
+		// only output authors with posts; ugly way to get to the result, but it works....
+		
+		if ($post_count[0]->cnt) {
+ 
+			// load info on this user
+			$author = get_userdata( $item);
+						
+			// store output in temp array; we use last names as an index in this array
+			$holding_pen[$author->last_name] =  '<li><a href="' . $blog_url . '/author/'  . $author->user_login  . '"> ' . $author->display_name . ' (' . $post_count[0]->cnt . ')</a> </li>';
+		}
+ 
+	}
+	
+	// now sort the array on the index to get alpha order
+	ksort($holding_pen);
+	
+	// now we can spit the output out.
+	foreach ($holding_pen as $key=>$value) {
+		echo $value;
+	}
+	echo '</ul>';
+} */
 ?>
 

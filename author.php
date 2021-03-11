@@ -8,7 +8,7 @@
     $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
     ?>
 
-    <h2>About: <?php echo $curauth->nickname; ?></h2>
+    <h2>About: <?php echo $curauth->display_name; ?></h2>
     <dl>
         <dt>Website</dt>
         <dd><a href="<?php echo $curauth->user_url; ?>"><?php echo $curauth->user_url; ?></a></dd>
@@ -16,7 +16,7 @@
         <dd><?php echo $curauth->user_description; ?></dd>
     </dl>
 
-    <h2>Posts by <?php echo $curauth->nickname; ?>:</h2>
+    <h2>Posts by <?php echo $curauth->display_name; ?>:</h2>
 
     <ul>
 <!-- The Loop -->
@@ -37,5 +37,5 @@
 
     </ul>
 </div>
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

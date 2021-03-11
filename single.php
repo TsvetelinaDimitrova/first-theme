@@ -4,7 +4,7 @@
             <header>
                 <h1 class="heading"><?php the_title();?></h1>
                 <p class="author-name"> 
-                    <?php  if ($author_id = get_post_meta(get_the_ID(), 'wpc_post_author', true)){
+                    <?php  if ($author_id = get_post_meta(get_the_ID(), 'wpb_post_author_name', true)){
                         ?> Autor: <?php echo get_the_author_meta('display_name', $author_id); ?>
                     <?php } ?>
                 </p>
